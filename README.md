@@ -9,7 +9,7 @@ dataforms.jarで作成したアプリケーションを、スタンドアロー�
 runwar.jarを起動したPCは一時的にWebアプリケーションサーバになっているため、同一LAN内の別のPCからも起動されているWebアプリケーションを利用することができます。
 
 ## Install
-Java8がインストールされたPCで、[リリース](https://github.com/takayanagi2087/runwar/releases)からrunwar_xxx.zipファイルをダウンロードし、適切なフォルダに展開してください。  
+Java8がインストールされたPCで、[リリース](https://github.com/takayanagi2087/runwar/releases)からrunwarXXXX.zipファイルをダウンロードし、適切なフォルダに展開してください。  
 展開されたフォルダ中のrunwar.jarをダブルクリックすると、簡易アプリケーションサーバが起動し、
 設定されたブラウザが起動します。  
 
