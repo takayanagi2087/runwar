@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="queryForm">
+			<div class="formHeader">検索条件</div>
+			<table class="responsive">
+				<tbody>
+					<tr>
+						<th>記事タイトル</th>
+						<td><input type="text" id="title" /></td>
+					</tr>
+					<tr>
+						<th>著者</th>
+						<td><input type="text" id="auther" /></td>
+					</tr>
+					<tr>
+						<th>本文</th>
+						<td><input type="text" id="contents" /></td>
+					</tr>
+					<tr>
+						<th>スレッド</th>
+						<td><select id="threadId"></select></td>
+					</tr>
+				</tbody>
+			</table>
+			<input type="submit" id="queryButton" value="検索">
+			<input type="button" id="resetButton" value="リセット">&nbsp;
+			<input type="button" id="newButton" value="新規登録">
+		</form>
+
+	</body>
+</html>

@@ -1,0 +1,20 @@
+{
+	// Tomcatの起動ポートを設定します。
+	port:8080,
+	// 起動ブラウザを固定したい場合は以下の設定を参考にしてください。
+	// この設定を有効にすると、Chromeがフルスクリーンモードで起動します。
+	//browser:[
+	//	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+	//	"--start-fullscreen"
+	//],
+	// 配列webappsに実行するアプリケーションを設定します。",
+	webapps:[
+ 		{
+			title:"BBSシステム(dataforms.jarのサンプルアプリケーション)",
+			context:"/dfbbs",
+			startPage:"/index.html",
+			docBase:"webapps/dfbbs",
+			browser:true
+		}
+	]
+}

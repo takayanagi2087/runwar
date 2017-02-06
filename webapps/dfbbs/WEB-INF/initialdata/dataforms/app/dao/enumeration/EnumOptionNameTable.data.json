@@ -1,0 +1,492 @@
+[
+	{
+		"createUserId": "0",
+		"enumOptionCode": "developer",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "Developer",
+		"updateTimestamp": "20170203154501086",
+		"createTimestamp": "20170203154500764"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "admin",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "Administrator",
+		"updateTimestamp": "20170203154501109",
+		"createTimestamp": "20170203154500773"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "admin",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "管理者",
+		"updateTimestamp": "20170203154501124",
+		"createTimestamp": "20170203154500778"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "developer",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "開発者",
+		"updateTimestamp": "20170203154501135",
+		"createTimestamp": "20170203154500782"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "guest",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "Guest",
+		"updateTimestamp": "20170203154501146",
+		"createTimestamp": "20170203154500792"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "guest",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "ゲスト",
+		"updateTimestamp": "20170203154501159",
+		"createTimestamp": "20170203154500799"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "user",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "User",
+		"updateTimestamp": "20170203154501174",
+		"createTimestamp": "20170203154500805"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "user",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "userLevel",
+		"enumOptionName": "ユーザ",
+		"updateTimestamp": "20170203154501186",
+		"createTimestamp": "20170203154500811"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "develop",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "section",
+		"enumOptionName": "開発部",
+		"updateTimestamp": "20170203154501203",
+		"createTimestamp": "20170203154500816"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "sales",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "section",
+		"enumOptionName": "営業部",
+		"updateTimestamp": "20170203154501221",
+		"createTimestamp": "20170203154500829"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "generalAffairs",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "section",
+		"enumOptionName": "総務部",
+		"updateTimestamp": "20170203154501232",
+		"createTimestamp": "20170203154500834"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "develop",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "section",
+		"enumOptionName": "Develop",
+		"updateTimestamp": "20170203154501248",
+		"createTimestamp": "20170203154500842"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "sales",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "section",
+		"enumOptionName": "Sales",
+		"updateTimestamp": "20170203154501259",
+		"createTimestamp": "20170203154500851"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "generalAffairs",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "section",
+		"enumOptionName": "General Affairs",
+		"updateTimestamp": "20170203154501271",
+		"createTimestamp": "20170203154500858"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "staff",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "post",
+		"enumOptionName": "Staff",
+		"updateTimestamp": "20170203154501287",
+		"createTimestamp": "20170203154500863"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "chief",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "post",
+		"enumOptionName": "Chief",
+		"updateTimestamp": "20170203154501300",
+		"createTimestamp": "20170203154500883"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "manager",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "post",
+		"enumOptionName": "Manager",
+		"updateTimestamp": "20170203154501314",
+		"createTimestamp": "20170203154500888"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "generalManager",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "post",
+		"enumOptionName": "General Manager",
+		"updateTimestamp": "20170203154501325",
+		"createTimestamp": "20170203154500898"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "exectiveManager",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "post",
+		"enumOptionName": "Exective Manager",
+		"updateTimestamp": "20170203154501337",
+		"createTimestamp": "20170203154500910"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "chief",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "post",
+		"enumOptionName": "係長",
+		"updateTimestamp": "20170203154501349",
+		"createTimestamp": "20170203154500916"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "manager",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "post",
+		"enumOptionName": "課長",
+		"updateTimestamp": "20170203154501359",
+		"createTimestamp": "20170203154500921"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "generalManager",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "post",
+		"enumOptionName": "部長",
+		"updateTimestamp": "20170203154501375",
+		"createTimestamp": "20170203154500935"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "exectiveManager",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "post",
+		"enumOptionName": "取締役",
+		"updateTimestamp": "20170203154501393",
+		"createTimestamp": "20170203154500941"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "staff",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "post",
+		"enumOptionName": "社員",
+		"updateTimestamp": "20170203154501409",
+		"createTimestamp": "20170203154500950"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "page",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "Page",
+		"updateTimestamp": "20170203154501420",
+		"createTimestamp": "20170203154500957"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "page",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "ページ",
+		"updateTimestamp": "20170203154501433",
+		"createTimestamp": "20170203154500962"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "dialog",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "Dialog",
+		"updateTimestamp": "20170203154501448",
+		"createTimestamp": "20170203154500968"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "dialog",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "ダイアログ",
+		"updateTimestamp": "20170203154501461",
+		"createTimestamp": "20170203154500974"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "form",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "Form",
+		"updateTimestamp": "20170203154501476",
+		"createTimestamp": "20170203154500981"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "form",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "フォーム",
+		"updateTimestamp": "20170203154501488",
+		"createTimestamp": "20170203154500986"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "table",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "Table",
+		"updateTimestamp": "20170203154501498",
+		"createTimestamp": "20170203154500991"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "table",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "テーブル",
+		"updateTimestamp": "20170203154501506",
+		"createTimestamp": "20170203154500995"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "field",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "Field",
+		"updateTimestamp": "20170203154501516",
+		"createTimestamp": "20170203154501000"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "field",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "フィールド",
+		"updateTimestamp": "20170203154501525",
+		"createTimestamp": "20170203154501005"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "validator",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "Validator",
+		"updateTimestamp": "20170203154501535",
+		"createTimestamp": "20170203154501009"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "validator",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "webCompType",
+		"enumOptionName": "バリデータ",
+		"updateTimestamp": "20170203154501546",
+		"createTimestamp": "20170203154501015"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "error",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "overwriteMode",
+		"enumOptionName": "Overwrite is error",
+		"updateTimestamp": "20170203154501558",
+		"createTimestamp": "20170203154501021"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "error",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "overwriteMode",
+		"enumOptionName": "上書きはエラー",
+		"updateTimestamp": "20170203154501580",
+		"createTimestamp": "20170203154501027"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "skip",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "overwriteMode",
+		"enumOptionName": "Do not overwrite",
+		"updateTimestamp": "20170203154501593",
+		"createTimestamp": "20170203154501032"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "skip",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "overwriteMode",
+		"enumOptionName": "上書きしない",
+		"updateTimestamp": "20170203154501605",
+		"createTimestamp": "20170203154501036"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "force",
+		"updateUserId": "0",
+		"langCode": "default",
+		"enumTypeCode": "overwriteMode",
+		"enumOptionName": "Force overwrite",
+		"updateTimestamp": "20170203154501616",
+		"createTimestamp": "20170203154501042"
+	},
+	{
+		"createUserId": "0",
+		"enumOptionCode": "force",
+		"updateUserId": "0",
+		"langCode": "ja",
+		"enumTypeCode": "overwriteMode",
+		"enumOptionName": "強制的に上書き",
+		"updateTimestamp": "20170203154501626",
+		"createTimestamp": "20170203154501048"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "1",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "sampleSelect",
+		"enumOptionName": "A",
+		"updateTimestamp": "20170203154501634",
+		"createTimestamp": "20170203154501634"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "2",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "sampleSelect",
+		"enumOptionName": "B",
+		"updateTimestamp": "20170203154501643",
+		"createTimestamp": "20170203154501643"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "3",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "sampleSelect",
+		"enumOptionName": "C",
+		"updateTimestamp": "20170203154501652",
+		"createTimestamp": "20170203154501652"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "file",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "fileType",
+		"enumOptionName": "ファイル",
+		"updateTimestamp": "20170203154501662",
+		"createTimestamp": "20170203154501662"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "image",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "fileType",
+		"enumOptionName": "画像",
+		"updateTimestamp": "20170203154501674",
+		"createTimestamp": "20170203154501674"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "video",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "fileType",
+		"enumOptionName": "動画",
+		"updateTimestamp": "20170203154501686",
+		"createTimestamp": "20170203154501686"
+	},
+	{
+		"createUserId": "1000",
+		"enumOptionCode": "audio",
+		"updateUserId": "1000",
+		"langCode": "default",
+		"enumTypeCode": "fileType",
+		"enumOptionName": "音声",
+		"updateTimestamp": "20170203154501696",
+		"createTimestamp": "20170203154501696"
+	}
+]

@@ -1,0 +1,284 @@
+2016-10-24 22:33:35,435  INFO DataFormsServlet - init:dataSourceName=jdbc/dfdb
+2016-10-24 22:33:35,437  INFO DataFormsServlet - init:webResourceUrl=null
+2016-10-24 22:33:35,437  INFO DataFormsServlet - init:encoding=utf-8
+2016-10-24 22:33:35,437  INFO DataFormsServlet - init:jsonDebug=true
+2016-10-24 22:33:35,437  INFO DataFormsServlet - init:tempDir=/tmp
+2016-10-24 22:33:35,438  INFO DataFormsServlet - init:exportImportDir=/tmp/data
+2016-10-24 22:33:35,438  INFO DataFormsServlet - init:cssAndScript=/frame/jslib.html
+2016-10-24 22:33:35,438  INFO DataFormsServlet - init:errorPage=/dataforms/app/errorpage/ErrorPage.df
+2016-10-24 22:33:35,438  INFO DataFormsServlet - init:clientValidation=true
+2016-10-24 22:33:35,438  INFO DataFormsServlet - init:clientLogLevel=debug
+2016-10-24 22:33:35,438  INFO DataFormsServlet - init:uploadDataFolder=/uploadData
+2016-10-24 22:33:35,439  INFO DataFormsServlet - init:supportLanguage=ja
+2016-10-24 22:33:35,439  INFO DataFormsServlet - init:disableDeveloperTools=false
+2016-10-24 22:33:35,440  INFO DataFormsServlet - init:framePath=/frame/default
+2016-10-24 22:33:35,441  INFO DataFormsServlet - init:clientMessages=/frame/messages/ClientMessages
+2016-10-24 22:33:35,441  INFO DataFormsServlet - init:messages=/frame/messages/Messages
+2016-10-24 22:33:35,449  INFO DataFormsServlet - beanClass = null
+2016-10-24 22:33:35,455  INFO DataFormsServlet - lookup data source=java:/comp/env/jdbc/dfdb
+2016-10-24 22:33:35,457  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/top/TopPage.df
+2016-10-24 22:33:35,458  INFO DataFormsServlet - classname=dataforms.app.page.top.TopPage
+2016-10-24 22:33:35,512  INFO DataFormsServlet - method=getHtml
+2016-10-24 22:33:36,052  INFO SqlGenerator - databaseName=Apache Derby,10.11.1.1 - (1616546)
+2016-10-24 22:33:36,052  INFO SqlGenerator - driver=Apache Derby Embedded JDBC Driver,10.11.1.1 - (1616546),10,11
+2016-10-24 22:33:36,054  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/dao/sqlgen/
+2016-10-24 22:33:36,054  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:36,381  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:36,381  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:36,384  INFO DataFormsServlet - method=getHtml
+2016-10-24 22:33:36,384  INFO Page - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:36,385  INFO Page - path=/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:36,417  INFO Page - sendHtml=/dataforms/app/page/login/LoginPage_ja.html
+2016-10-24 22:33:36,503  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/controller/
+2016-10-24 22:33:36,503  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:36,545  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/htmltable/
+2016-10-24 22:33:36,545  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:36,567  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/menu/
+2016-10-24 22:33:36,567  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:36,581  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/field/
+2016-10-24 22:33:36,581  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:36,845  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/validator/
+2016-10-24 22:33:36,845  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:37,551  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,552  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,552  INFO DataFormsServlet - method=getClientMessages
+2016-10-24 22:33:37,552  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages start param={}
+2016-10-24 22:33:37,562  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages finish result=dataforms.controller.JsonResponse@726f1c1d
+2016-10-24 22:33:37,619  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,620  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,620  INFO DataFormsServlet - method=getPageInfo
+2016-10-24 22:33:37,620  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo start param={}
+2016-10-24 22:33:37,675  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/app/
+2016-10-24 22:33:37,675  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:37,719  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/devtool/
+2016-10-24 22:33:37,719  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 22:33:37,800  INFO DataForms - fmap={loginForm=dataforms.app.page.login.LoginForm@671077af, sideMenuForm=dataforms.app.form.SideMenuForm@23939212, loginInfoForm=dataforms.app.form.LoginInfoForm@7674072d}
+2016-10-24 22:33:37,812  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo finish result=dataforms.controller.JsonResponse@42a55c91
+2016-10-24 22:33:37,820  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,820  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,821  INFO DataFormsServlet - method=getParts
+2016-10-24 22:33:37,821  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=/frame/default/Frame.html}
+2016-10-24 22:33:37,825  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@7f9c065c
+2016-10-24 22:33:37,844  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,844  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,844  INFO DataFormsServlet - method=getParts
+2016-10-24 22:33:37,845  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=dataforms/app/page/login/LoginForm.html}
+2016-10-24 22:33:37,848  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@1db0a5e7
+2016-10-24 22:33:37,869  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,869  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,869  INFO DataFormsServlet - method=getParts
+2016-10-24 22:33:37,870  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/SideMenuForm.html}
+2016-10-24 22:33:37,872  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@5e59e66
+2016-10-24 22:33:37,887  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,887  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,887  INFO DataFormsServlet - method=getParts
+2016-10-24 22:33:37,887  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/LoginInfoForm.html}
+2016-10-24 22:33:37,890  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@1406d9b8
+2016-10-24 22:33:37,905  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 22:33:37,905  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 22:33:37,905  INFO DataFormsServlet - method=loginInfoForm.getUserInfo
+2016-10-24 23:36:26,691  INFO DataFormsServlet - init:dataSourceName=jdbc/dfdb
+2016-10-24 23:36:26,692  INFO DataFormsServlet - init:webResourceUrl=null
+2016-10-24 23:36:26,692  INFO DataFormsServlet - init:encoding=utf-8
+2016-10-24 23:36:26,692  INFO DataFormsServlet - init:jsonDebug=true
+2016-10-24 23:36:26,692  INFO DataFormsServlet - init:tempDir=/tmp
+2016-10-24 23:36:26,692  INFO DataFormsServlet - init:exportImportDir=/tmp/data
+2016-10-24 23:36:26,693  INFO DataFormsServlet - init:cssAndScript=/frame/jslib.html
+2016-10-24 23:36:26,693  INFO DataFormsServlet - init:errorPage=/dataforms/app/errorpage/ErrorPage.df
+2016-10-24 23:36:26,693  INFO DataFormsServlet - init:clientValidation=true
+2016-10-24 23:36:26,693  INFO DataFormsServlet - init:clientLogLevel=debug
+2016-10-24 23:36:26,694  INFO DataFormsServlet - init:uploadDataFolder=/uploadData
+2016-10-24 23:36:26,694  INFO DataFormsServlet - init:supportLanguage=ja
+2016-10-24 23:36:26,694  INFO DataFormsServlet - init:disableDeveloperTools=false
+2016-10-24 23:36:26,695  INFO DataFormsServlet - init:framePath=/frame/default
+2016-10-24 23:36:26,695  INFO DataFormsServlet - init:clientMessages=/frame/messages/ClientMessages
+2016-10-24 23:36:26,695  INFO DataFormsServlet - init:messages=/frame/messages/Messages
+2016-10-24 23:36:26,701  INFO DataFormsServlet - beanClass = null
+2016-10-24 23:36:26,705  INFO DataFormsServlet - lookup data source=java:/comp/env/jdbc/dfdb
+2016-10-24 23:36:26,706  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/top/TopPage.df
+2016-10-24 23:36:26,706  INFO DataFormsServlet - classname=dataforms.app.page.top.TopPage
+2016-10-24 23:36:26,758  INFO DataFormsServlet - method=getHtml
+2016-10-24 23:36:27,193  INFO SqlGenerator - databaseName=Apache Derby,10.11.1.1 - (1616546)
+2016-10-24 23:36:27,194  INFO SqlGenerator - driver=Apache Derby Embedded JDBC Driver,10.11.1.1 - (1616546),10,11
+2016-10-24 23:36:27,196  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/dao/sqlgen/
+2016-10-24 23:36:27,196  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:27,453  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:27,453  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:27,456  INFO DataFormsServlet - method=getHtml
+2016-10-24 23:36:27,456  INFO Page - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:27,456  INFO Page - path=/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:27,474  INFO Page - sendHtml=/dataforms/app/page/login/LoginPage_ja.html
+2016-10-24 23:36:27,535  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/controller/
+2016-10-24 23:36:27,535  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:27,570  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/htmltable/
+2016-10-24 23:36:27,570  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:27,596  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/menu/
+2016-10-24 23:36:27,596  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:27,612  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/field/
+2016-10-24 23:36:27,612  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:27,849  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/validator/
+2016-10-24 23:36:27,849  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:28,598  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,598  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,599  INFO DataFormsServlet - method=getClientMessages
+2016-10-24 23:36:28,600  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages start param={}
+2016-10-24 23:36:28,616  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages finish result=dataforms.controller.JsonResponse@6b61a4f7
+2016-10-24 23:36:28,696  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,696  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,696  INFO DataFormsServlet - method=getPageInfo
+2016-10-24 23:36:28,697  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo start param={}
+2016-10-24 23:36:28,758  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/app/
+2016-10-24 23:36:28,758  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:28,806  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/devtool/
+2016-10-24 23:36:28,806  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:36:28,870  INFO DataForms - fmap={loginForm=dataforms.app.page.login.LoginForm@7674072d, sideMenuForm=dataforms.app.form.SideMenuForm@42a55c91, loginInfoForm=dataforms.app.form.LoginInfoForm@266cf665}
+2016-10-24 23:36:28,881  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo finish result=dataforms.controller.JsonResponse@19d0f3b8
+2016-10-24 23:36:28,889  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,889  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,890  INFO DataFormsServlet - method=getParts
+2016-10-24 23:36:28,890  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=/frame/default/Frame.html}
+2016-10-24 23:36:28,894  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@43158d1
+2016-10-24 23:36:28,914  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,914  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,915  INFO DataFormsServlet - method=getParts
+2016-10-24 23:36:28,915  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=dataforms/app/page/login/LoginForm.html}
+2016-10-24 23:36:28,917  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@44c1f9ae
+2016-10-24 23:36:28,944  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,945  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,945  INFO DataFormsServlet - method=getParts
+2016-10-24 23:36:28,945  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/SideMenuForm.html}
+2016-10-24 23:36:28,948  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@84e99d
+2016-10-24 23:36:28,958  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,958  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,958  INFO DataFormsServlet - method=getParts
+2016-10-24 23:36:28,958  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/LoginInfoForm.html}
+2016-10-24 23:36:28,961  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@61bdcc5f
+2016-10-24 23:36:28,986  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:36:28,986  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:36:28,986  INFO DataFormsServlet - method=loginInfoForm.getUserInfo
+2016-10-24 23:37:08,988  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/top/TopPage.df
+2016-10-24 23:37:08,989  INFO DataFormsServlet - classname=dataforms.app.page.top.TopPage
+2016-10-24 23:37:08,989  INFO DataFormsServlet - method=getHtml
+2016-10-24 23:37:08,994  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:08,994  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:08,994  INFO DataFormsServlet - method=getHtml
+2016-10-24 23:37:08,994  INFO Page - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:08,994  INFO Page - path=/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:08,995  INFO Page - sendHtml=/dataforms/app/page/login/LoginPage_ja.html
+2016-10-24 23:37:09,228  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,228  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,228  INFO DataFormsServlet - method=getClientMessages
+2016-10-24 23:37:09,229  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages start param={}
+2016-10-24 23:37:09,229  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages finish result=dataforms.controller.JsonResponse@73751e3e
+2016-10-24 23:37:09,236  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,236  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,236  INFO DataFormsServlet - method=getPageInfo
+2016-10-24 23:37:09,236  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo start param={}
+2016-10-24 23:37:09,242  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/app/
+2016-10-24 23:37:09,242  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:09,249  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/devtool/
+2016-10-24 23:37:09,249  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:09,260  INFO DataForms - fmap={loginForm=dataforms.app.page.login.LoginForm@64c56a33, sideMenuForm=dataforms.app.form.SideMenuForm@71da8281, loginInfoForm=dataforms.app.form.LoginInfoForm@74413912}
+2016-10-24 23:37:09,263  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo finish result=dataforms.controller.JsonResponse@6d7c72a
+2016-10-24 23:37:09,282  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,282  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,282  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:09,282  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=/frame/default/Frame.html}
+2016-10-24 23:37:09,283  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@b7f52e6
+2016-10-24 23:37:09,306  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,306  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,306  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:09,306  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=dataforms/app/page/login/LoginForm.html}
+2016-10-24 23:37:09,307  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@68982f6b
+2016-10-24 23:37:09,333  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,333  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,334  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:09,335  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/SideMenuForm.html}
+2016-10-24 23:37:09,335  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@e68b8d9
+2016-10-24 23:37:09,345  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,346  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,346  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:09,346  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/LoginInfoForm.html}
+2016-10-24 23:37:09,346  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@667c5b3b
+2016-10-24 23:37:09,368  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:09,369  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:09,369  INFO DataFormsServlet - method=loginInfoForm.getUserInfo
+2016-10-24 23:37:38,447  INFO DataFormsServlet - init:dataSourceName=jdbc/dfdb
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:webResourceUrl=null
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:encoding=utf-8
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:jsonDebug=true
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:tempDir=/tmp
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:exportImportDir=/tmp/data
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:cssAndScript=/frame/jslib.html
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:errorPage=/dataforms/app/errorpage/ErrorPage.df
+2016-10-24 23:37:38,448  INFO DataFormsServlet - init:clientValidation=true
+2016-10-24 23:37:38,449  INFO DataFormsServlet - init:clientLogLevel=debug
+2016-10-24 23:37:38,449  INFO DataFormsServlet - init:uploadDataFolder=/uploadData
+2016-10-24 23:37:38,449  INFO DataFormsServlet - init:supportLanguage=ja
+2016-10-24 23:37:38,449  INFO DataFormsServlet - init:disableDeveloperTools=false
+2016-10-24 23:37:38,450  INFO DataFormsServlet - init:framePath=/frame/default
+2016-10-24 23:37:38,450  INFO DataFormsServlet - init:clientMessages=/frame/messages/ClientMessages
+2016-10-24 23:37:38,450  INFO DataFormsServlet - init:messages=/frame/messages/Messages
+2016-10-24 23:37:38,454  INFO DataFormsServlet - beanClass = null
+2016-10-24 23:37:38,457  INFO DataFormsServlet - lookup data source=java:/comp/env/jdbc/dfdb
+2016-10-24 23:37:38,463  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/top/TopPage.df
+2016-10-24 23:37:38,463  INFO DataFormsServlet - classname=dataforms.app.page.top.TopPage
+2016-10-24 23:37:38,485  INFO DataFormsServlet - method=getHtml
+2016-10-24 23:37:38,823  INFO SqlGenerator - databaseName=Apache Derby,10.11.1.1 - (1616546)
+2016-10-24 23:37:38,823  INFO SqlGenerator - driver=Apache Derby Embedded JDBC Driver,10.11.1.1 - (1616546),10,11
+2016-10-24 23:37:38,824  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/dao/sqlgen/
+2016-10-24 23:37:38,825  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:39,089  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:39,090  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:39,093  INFO DataFormsServlet - method=getHtml
+2016-10-24 23:37:39,094  INFO Page - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:39,094  INFO Page - path=/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:39,121  INFO Page - sendHtml=/dataforms/app/page/login/LoginPage_ja.html
+2016-10-24 23:37:39,185  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/controller/
+2016-10-24 23:37:39,185  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:39,230  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/htmltable/
+2016-10-24 23:37:39,230  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:39,253  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/menu/
+2016-10-24 23:37:39,253  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:39,271  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/field/
+2016-10-24 23:37:39,271  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:39,509  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/validator/
+2016-10-24 23:37:39,509  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:40,700  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:40,700  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:40,700  INFO DataFormsServlet - method=getClientMessages
+2016-10-24 23:37:40,701  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages start param={}
+2016-10-24 23:37:40,710  INFO Page - dataforms.app.page.login.LoginPage.getClientMessages finish result=dataforms.controller.JsonResponse@27654f56
+2016-10-24 23:37:40,774  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:40,774  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:40,775  INFO DataFormsServlet - method=getPageInfo
+2016-10-24 23:37:40,775  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo start param={}
+2016-10-24 23:37:40,834  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/app/
+2016-10-24 23:37:40,834  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:40,881  INFO ClassFinder - findClasses:URL = jar:file:/D:/eclipse/pleiades-e4.6/workspace/runwar/webapps/dfblank/WEB-INF/lib/dataforms.jar!/dataforms/devtool/
+2016-10-24 23:37:40,881  INFO ClassFinder - findClasses:Protocol = jar
+2016-10-24 23:37:40,969  INFO DataForms - fmap={loginForm=dataforms.app.page.login.LoginForm@6b4ca942, sideMenuForm=dataforms.app.form.SideMenuForm@19b9cad8, loginInfoForm=dataforms.app.form.LoginInfoForm@26b85d5f}
+2016-10-24 23:37:40,979  INFO Page - dataforms.app.page.login.LoginPage.getPageInfo finish result=dataforms.controller.JsonResponse@28ee51fc
+2016-10-24 23:37:40,991  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:40,992  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:40,993  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:40,993  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=/frame/default/Frame.html}
+2016-10-24 23:37:41,002  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@3d8ea49f
+2016-10-24 23:37:41,034  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:41,034  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:41,034  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:41,034  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=dataforms/app/page/login/LoginForm.html}
+2016-10-24 23:37:41,037  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@543de86e
+2016-10-24 23:37:41,069  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:41,069  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:41,069  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:41,070  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/SideMenuForm.html}
+2016-10-24 23:37:41,072  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@18bd0845
+2016-10-24 23:37:41,086  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:41,086  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:41,086  INFO DataFormsServlet - method=getParts
+2016-10-24 23:37:41,086  INFO DataForms - dataforms.app.page.login.LoginPage.getParts start param={parts=frame/default/LoginInfoForm.html}
+2016-10-24 23:37:41,089  INFO DataForms - dataforms.app.page.login.LoginPage.getParts finish result=dataforms.controller.JsonResponse@16d2e4e
+2016-10-24 23:37:41,109  INFO DataFormsServlet - context=/dfblank, uri=/dfblank/dataforms/app/page/login/LoginPage.df
+2016-10-24 23:37:41,117  INFO DataFormsServlet - classname=dataforms.app.page.login.LoginPage
+2016-10-24 23:37:41,117  INFO DataFormsServlet - method=loginInfoForm.getUserInfo

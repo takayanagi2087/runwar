@@ -1,0 +1,12 @@
+{
+	comment:"配列webappsに実行するアプリケーションを記録します。",
+	port:8080,
+	webapps:[
+	    {
+	    	title:"医療機関紹介マップ",
+	    	context:"/intromap",
+	    	docBase:"webapps/intromap",
+	    	browser:true
+	    }
+	]
+}

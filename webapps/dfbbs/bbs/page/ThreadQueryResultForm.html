@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="threadQueryResultForm">
+			<div class="formHeader">記事一覧</div>
+			<input type="hidden" id="threadId" />
+			<table class="responsive">
+				<tbody>
+				</tbody>
+			</table>
+			<div class="hScrollDiv">
+				<table id="queryResult" style="width:100%;">
+					<tbody>
+						<tr>
+							<td>
+								<span id="queryResult[0].rowNo"></span>
+								<input type="hidden" id="queryResult[0].articleId" />
+								<input type="hidden" id="queryResult[0].threadId" />
+								<input type="hidden" id="queryResult[0].createUserId" />
+								<input type="hidden" id="queryResult[0].updateUserId" />
+								<input type="hidden" id="queryResult[0].updateTimestamp" />
+								名前:<span id="queryResult[0].auther"></span>&nbsp;タイトル:<span id="queryResult[0].title"></span>&nbsp;日時:<span id="queryResult[0].createTimestamp"></span><br/>
+								<pre id="queryResult[0].contents">
+								</pre>
+								<label for="queryResult[0].fileCount">添付ファイル数:</label><span id="queryResult[0].fileCount"></span>
+								<input type="button" id="queryResult[0].viewFileButton" value="表示" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<input type="button" id="backButton" value="戻る"/>
+		</form>
+
+	</body>
+</html>
