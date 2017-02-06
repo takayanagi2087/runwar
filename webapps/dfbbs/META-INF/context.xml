@@ -4,6 +4,6 @@
 	<Resource auth="Container"
 		driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
 		name="jdbc/dfdb" type="javax.sql.DataSource"
-		url="jdbc:derby:/javadb/dfbbs;create=true"
+		url="jdbc:derby:./javadb/dfbbs;create=true"
 		username="" password="" />
 </Context>
