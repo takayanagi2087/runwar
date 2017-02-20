@@ -10,8 +10,11 @@ runwar.jarを起動したPCは一時的にWebアプリケーションサーバ�
 
 ## Install
 Java8がインストールされたPCで、[リリース](https://github.com/takayanagi2087/runwar/releases)からrunwarXXXX.zipファイルをダウンロードし、適切なフォルダに展開してください。  
-展開されたフォルダ中のrunwar.jarをダブルクリックすると、簡易アプリケーションサーバが起動し、
-設定されたブラウザが起動します。  
+このパッケージにはdataforms.jarのサンプルアプリケーション dfbbsが入っています。  
+展開されたフォルダ中のrunwar.jarをダブルクリックすると、簡易アプリケーションサーバが起動し、デフォルトブラウザが起動します。  
+初回のブラウザ起動時にはdeveloperの登録画面が表示されます。  
+developerのパスワードを登録すると、Apache derbyのデータベースが作成され、dfbbsが使えるようになります。  
+
 
 ## Requirement
 Java8がインストールされたPC。 
