@@ -52,7 +52,8 @@ import net.arnx.jsonic.JSON;
  */
 public class RunWar extends JFrame {
 
-	private static final String SYSTEM_NAME = "Runwar(Tomcat + derby)";
+	private static final String SYSTEM_NAME = "Runwar";
+	private static final String VERSION = "1.10";
 	private Map<String, Object> config = null;
 	private int port = 8080;
 	private JPanel contentPane;
@@ -308,6 +309,6 @@ public class RunWar extends JFrame {
 	 * バージョン情報。
 	 */
 	private void about() {
-		this.icon.displayMessage("バージョン情報", "Runwar ver 1.01 (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.", MessageType.INFO);
+		this.icon.displayMessage("バージョン情報", SYSTEM_NAME + " ver." + VERSION + " (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.", MessageType.INFO);
 	}
 }
