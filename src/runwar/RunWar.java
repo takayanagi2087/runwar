@@ -3,6 +3,12 @@ package runwar;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.TrayIcon;
+import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -11,11 +17,16 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.BindException;
+import java.net.ServerSocket;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -41,12 +52,14 @@ import net.arnx.jsonic.JSON;
  */
 public class RunWar extends JFrame {
 
+	private static final String SYSTEM_NAME = "Runwar(Tomcat + derby)";
 	private Map<String, Object> config = null;
 	private int port = 8080;
 	private JPanel contentPane;
 	private Tomcat tomcat = null;
-
+	private TrayIcon icon = null;
 	private JList<String> appList = null;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +68,7 @@ public class RunWar extends JFrame {
 			public void run() {
 				try {
 					RunWar frame = new RunWar();
-					frame.setVisible(true);
+					frame.start();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -64,21 +77,72 @@ public class RunWar extends JFrame {
 	}
 
 	/**
+	 * タスクトレイを設定します。
+	 * @throws Exception 例外。
+	 */
+	private void setTaskTrayIcon() throws Exception {
+		// アイコンイメージの読み込み
+		Image image = ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("runwar.png"));
+		this.setIconImage(image);
+		// トレイアイコン生成
+		this.icon = new TrayIcon(image, SYSTEM_NAME);
+		// イベント登録
+		icon.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RunWar.this.setVisible(true);
+			}
+		});
+		// ポップアップメニュー
+		PopupMenu menu = new PopupMenu();
+		// メニューの例
+		MenuItem appList = new MenuItem("アプリケーション一覧");
+		appList.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RunWar.this.setVisible(true);
+			}
+		});
+
+		MenuItem about = new MenuItem("バージョン情報");
+		about.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RunWar.this.about();
+			}
+		});
+
+		// 終了メニュー
+		MenuItem exitItem = new MenuItem("終了");
+		exitItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RunWar.this.stop();
+				System.exit(0);
+			}
+		});
+		// メニューにメニューアイテムを追加
+		menu.add(appList);
+		menu.add(about);
+		menu.add(exitItem);
+		icon.setPopupMenu(menu);
+
+		// タスクトレイに格納
+		SystemTray.getSystemTray().add(icon);
+	}
+	
+	/**
 	 * コンストラクタ。
 	 */
 	public RunWar() {
 		addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowOpened(WindowEvent e) {
-				RunWar.this.start();
-			}
-			@Override
 			public void windowClosing(WindowEvent e) {
-				RunWar.this.stop();
+				RunWar.this.setVisible(false);
 			}
 		});
-		setTitle("Runwar(Tomcat&derby)");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle(SYSTEM_NAME);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 346, 237);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -91,8 +155,7 @@ public class RunWar extends JFrame {
 		JButton closeButton = new JButton("閉じる");
 		closeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				stop();
-				dispose();
+				RunWar.this.setVisible(false);
 			}
 		});
 		panel.add(closeButton);
@@ -114,8 +177,7 @@ public class RunWar extends JFrame {
 						@SuppressWarnings("unchecked")
 						List<Map<String, Object>> list = (List<Map<String, Object>>) config.get("webapps");
 						Map<String, Object> m = list.get(idx);
-						String context = (String) m.get("context");
-						Desktop.getDesktop().browse(new URI("http://localhost:" + port + context));
+						RunWar.this.runBrowser(m);
 					} catch (Exception ex) {
 						ex.printStackTrace();
 					}
@@ -155,49 +217,77 @@ public class RunWar extends JFrame {
 			if (config.get("port") != null) {
 				port = Integer.parseInt(config.get("port").toString());
 			}
-			tomcat.setPort(port);
-			tomcat.enableNaming();
+			boolean started = false;
+			try {
+				ServerSocket socket = new ServerSocket(port);
+				try {
+					;//
+				} finally {
+					socket.close();
+				}
+			} catch (BindException ex) {
+				started = true;
+				ex.printStackTrace();
+			}
 			@SuppressWarnings("unchecked")
 			List<Map<String, Object>> webapps = (List<Map<String, Object>>) config.get("webapps");
-			DefaultListModel<String> model = new DefaultListModel<String>();
-			for (Map<String, Object> m: webapps) {
-				model.addElement(m.get("title").toString());
-				String context = (String) m.get("context");
-				String docBase = (String) m.get("docBase");
-				tomcat.addWebapp(context, new File(docBase).getAbsolutePath());
-			}
-			appList.setModel(model);
-			System.out.println("port=" + tomcat.getConnector().getPort() + ",protocol=" + tomcat.getConnector().getProtocol());
-			tomcat.start();
-			@SuppressWarnings("unchecked")
-			List<String> browser = (List<String>) config.get("browser");
-			for (Map<String, Object> m: webapps) {
-				String context = (String) m.get("context");
-				String docBase = (String) m.get("docBase");
-				String startPage = (String) m.get("startPage");
-				Boolean br = (Boolean) m.get("browser");
-				if (br) {
-					System.out.println("context=" + context + ",docBase=" + docBase + startPage);
-					if (browser == null) {
-						Desktop.getDesktop().browse(new URI("http://localhost:" + port + context + startPage));
-					} else {
-						String[] cmd = new String[browser.size() + 1];
-						int idx = 0;
-						for (String c: browser) {
-							cmd[idx++] = c;
-						}
-						cmd[idx] = "http://localhost:" + port + context + startPage;
-						Runtime r = Runtime.getRuntime();
-						r.exec(cmd);
-					}
+			if (!started) {
+				tomcat.setPort(port);
+				tomcat.enableNaming();
+				DefaultListModel<String> model = new DefaultListModel<String>();
+				for (Map<String, Object> m: webapps) {
+					model.addElement(m.get("title").toString());
+					String context = (String) m.get("context");
+					String docBase = (String) m.get("docBase");
+					tomcat.addWebapp(context, new File(docBase).getAbsolutePath());
 				}
+				appList.setModel(model);
+				System.out.println("port=" + tomcat.getConnector().getPort() + ",protocol=" + tomcat.getConnector().getProtocol());
+				tomcat.start();
+				this.setTaskTrayIcon();
+			}
+			for (Map<String, Object> m: webapps) {
+				this.runBrowser(m);
 			}
 			
-
+			if (started) {
+				System.exit(0);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+
+
+	/**
+	 * ブラウザを起動して、指定したアプリケーションを表示します。
+	 * @param m アプリケーションの情報マップ。
+	 * @throws IOException IO例外。
+	 * @throws URISyntaxException 文法例外。
+	 */
+	private void runBrowser(Map<String, Object> m) throws IOException, URISyntaxException {
+		@SuppressWarnings("unchecked")
+		List<String> browser = (List<String>) config.get("browser");
+		String context = (String) m.get("context");
+		String docBase = (String) m.get("docBase");
+		String startPage = (String) m.get("startPage");
+		Boolean br = (Boolean) m.get("browser");
+		if (br) {
+			System.out.println("context=" + context + ",docBase=" + docBase + startPage);
+			if (browser == null) {
+				Desktop.getDesktop().browse(new URI("http://localhost:" + port + context + startPage));
+			} else {
+				String[] cmd = new String[browser.size() + 1];
+				int idx = 0;
+				for (String c: browser) {
+					cmd[idx++] = c;
+				}
+				cmd[idx] = "http://localhost:" + port + context + startPage;
+				Runtime r = Runtime.getRuntime();
+				r.exec(cmd);
+			}
+		}
 	}
 
 	/**
@@ -212,5 +302,12 @@ public class RunWar extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * バージョン情報。
+	 */
+	private void about() {
+		this.icon.displayMessage("バージョン情報", "Runwar ver 1.01 (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.", MessageType.INFO);
 	}
 }

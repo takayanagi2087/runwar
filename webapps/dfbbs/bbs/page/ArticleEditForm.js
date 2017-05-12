@@ -108,8 +108,8 @@ EditForm.prototype.changeStateForAfterUpdate = function() {
 		form.clearData();
 		form.toEditMode();
 		form.parent.toQueryMode();
-		if (qf != null) {
-			qf.changePage();
+		if (rf != null) {
+			rf.changePage();
 		}
 	} else {
 		form.clearData();
@@ -118,6 +118,10 @@ EditForm.prototype.changeStateForAfterUpdate = function() {
 			rf.changePage();
 		}
 		if (trf.get().is(":visible")) {
+			form.getComponent("threadId").lock(false);
+			var threadId = trf.find("#threadId").val();
+			form.find("#threadId").val(threadId);
+			form.getComponent("threadId").lock(true);
 			trf.changePage();
 		}
 	}

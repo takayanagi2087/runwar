@@ -12,7 +12,7 @@ public class ContentsField extends VarcharField {
 	/**
 	 * フィールド長。
 	 */
-	private static final int LENGTH = 4096;
+	private static final int LENGTH = 2000;
 
 	/**
 	 * フィールドコメント。

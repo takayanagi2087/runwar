@@ -14,6 +14,7 @@ import dataforms.dao.Table;
 import dataforms.dao.TableList;
 import dataforms.field.base.FieldList;
 import dataforms.field.common.RowNoField;
+import dataforms.field.sqlfunc.CountField;
 import dataforms.field.sqltype.TimestampField;
 import net.arnx.jsonic.JSON;
 
@@ -73,6 +74,7 @@ public class ArticleDao extends Dao {
 			AttachFileTable table = new AttachFileTable();
 			this.setFieldList(table.getFieldList());
 			this.setMainTable(table);
+			this.setOrderByFieldList(new FieldList(table.getSortOrderField()));
 		}
 	}
 
@@ -246,13 +248,42 @@ public class ArticleDao extends Dao {
 	}
 
 	/**
+	 * 記事数の問合せクラスです。
+	 *
+	 */
+	private static class ArticleCountQuery extends Query {
+		/**
+		 * コンストラクタ。
+		 */
+		public ArticleCountQuery() {
+			ArticleTable table = new ArticleTable();
+			FieldList flist = new FieldList();
+			flist.addField(new CountField("cnt", table.getArticleIdField()));
+			this.setFieldList(flist);
+			this.setMainTable(table);
+		}
+	}
+	
+	/**
 	 * データを削除します。
 	 * @param data データ。
 	 * @return 削除件数。
 	 * @throws Exception 例外。
 	 */
 	public int delete(final Map<String, Object> data) throws Exception {
-//		return this.executeRemove(new ArticleTable(), data); // レコードの論理削除(DeleteFlagの設定)
-		return this.executeDelete(new ArticleTable(), data); // レコードの物理削除
+		ArticleTable.Entity e = new ArticleTable.Entity(data);
+		Long articleId = e.getArticleId();
+		ArticleCountQuery query = new ArticleCountQuery();
+		query.setCondition("m.thread_id=:thread_id");
+		ArticleTable.Entity p = new ArticleTable.Entity();
+		p.setThreadId(articleId);
+		query.setQueryFormData(p.getMap());
+		Integer cnt = (Integer) this.executeScalarQuery(query);
+		if (cnt > 1) {
+			throw new ApplicationException(this.getPage(), "error.cannotdelete");
+		} else {
+			return this.executeRemove(new ArticleTable(), data); // レコードの論理削除(DeleteFlagの設定)
+		}
+//		return this.executeDelete(new ArticleTable(), data); // レコードの物理削除
 	}
 }
