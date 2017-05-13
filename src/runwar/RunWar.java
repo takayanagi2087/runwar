@@ -25,6 +25,7 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
@@ -32,6 +33,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -60,6 +64,8 @@ public class RunWar extends JFrame {
 	private Tomcat tomcat = null;
 	private TrayIcon icon = null;
 	private JList<String> appList = null;
+	
+	private static ResourceBundle resource = ResourceBundle.getBundle("runwar.RunWar"); 
 	
 	/**
 	 * Launch the application.
@@ -97,7 +103,7 @@ public class RunWar extends JFrame {
 		// ポップアップメニュー
 		PopupMenu menu = new PopupMenu();
 		// メニューの例
-		MenuItem appList = new MenuItem("アプリケーション一覧");
+		MenuItem appList = new MenuItem(RunWar.resource.getString("menuitem.applist"));
 		appList.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -105,7 +111,7 @@ public class RunWar extends JFrame {
 			}
 		});
 
-		MenuItem about = new MenuItem("バージョン情報");
+		MenuItem about = new MenuItem(RunWar.resource.getString("menuitem.about"));
 		about.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -114,7 +120,7 @@ public class RunWar extends JFrame {
 		});
 
 		// 終了メニュー
-		MenuItem exitItem = new MenuItem("終了");
+		MenuItem exitItem = new MenuItem(RunWar.resource.getString("menuitem.exit"));
 		exitItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -132,6 +138,33 @@ public class RunWar extends JFrame {
 		SystemTray.getSystemTray().add(icon);
 	}
 	
+	
+	private void setFrameMenu() {
+		JMenuBar menuBar = new JMenuBar();
+		JMenu fileMenu = new JMenu(RunWar.resource.getString("menu.file"));
+		JMenuItem exitItem = new JMenuItem(RunWar.resource.getString("menuitem.exit"));
+		exitItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RunWar.this.stop();
+				System.exit(0);
+			}
+		});
+		fileMenu.add(exitItem);
+		JMenu helpMenu = new JMenu(RunWar.resource.getString("menu.help"));
+		JMenuItem aboutItem = new JMenuItem(RunWar.resource.getString("menuitem.about"));
+		aboutItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RunWar.this.about();
+			}
+		});
+		helpMenu.add(aboutItem);
+		menuBar.add(fileMenu);
+		menuBar.add(helpMenu);
+		this.setJMenuBar(menuBar);
+	}
+	
 	/**
 	 * コンストラクタ。
 	 */
@@ -143,6 +176,8 @@ public class RunWar extends JFrame {
 			}
 		});
 		setTitle(SYSTEM_NAME);
+		this.setFrameMenu();
+		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 346, 237);
 		contentPane = new JPanel();
@@ -153,7 +188,7 @@ public class RunWar extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
 
-		JButton closeButton = new JButton("閉じる");
+		JButton closeButton = new JButton(RunWar.resource.getString("button.close"));
 		closeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RunWar.this.setVisible(false);
@@ -164,7 +199,7 @@ public class RunWar extends JFrame {
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.NORTH);
 
-		JLabel label = new JLabel("アプリケーション一覧");
+		JLabel label = new JLabel(RunWar.resource.getString("menuitem.applist"));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(label);
 
@@ -218,18 +253,7 @@ public class RunWar extends JFrame {
 			if (config.get("port") != null) {
 				port = Integer.parseInt(config.get("port").toString());
 			}
-			boolean started = false;
-			try {
-				ServerSocket socket = new ServerSocket(port);
-				try {
-					;//
-				} finally {
-					socket.close();
-				}
-			} catch (BindException ex) {
-				started = true;
-				ex.printStackTrace();
-			}
+			boolean started = this.isStarted();
 			@SuppressWarnings("unchecked")
 			List<Map<String, Object>> webapps = (List<Map<String, Object>>) config.get("webapps");
 			if (!started) {
@@ -258,6 +282,27 @@ public class RunWar extends JFrame {
 			e.printStackTrace();
 		}
 
+	}
+
+	/**
+	 * TCPのポートを確認しTOMCATが起動しているかどうかを確認する。
+	 * @return 起動している場合true。
+	 * @throws IOException 例外。
+	 */
+	private boolean isStarted() throws IOException {
+		boolean started = false;
+		try {
+			ServerSocket socket = new ServerSocket(port);
+			try {
+				;//
+			} finally {
+				socket.close();
+			}
+		} catch (BindException ex) {
+			started = true;
+			ex.printStackTrace();
+		}
+		return started;
 	}
 
 
@@ -309,6 +354,6 @@ public class RunWar extends JFrame {
 	 * バージョン情報。
 	 */
 	private void about() {
-		this.icon.displayMessage("バージョン情報", SYSTEM_NAME + " ver." + VERSION + " (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.", MessageType.INFO);
+		this.icon.displayMessage(RunWar.resource.getString("menuitem.about"), SYSTEM_NAME + " ver." + VERSION + " (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.", MessageType.INFO);
 	}
 }
