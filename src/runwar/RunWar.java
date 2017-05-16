@@ -2,6 +2,7 @@ package runwar;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.MenuItem;
@@ -36,6 +37,7 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -56,14 +58,18 @@ import net.arnx.jsonic.JSON;
  */
 public class RunWar extends JFrame {
 
+
+	private static final String MODE_WINDOW = "window";
+	private static final String MODE_TASKTRAY = "tasktray";
 	private static final String SYSTEM_NAME = "Runwar";
-	private static final String VERSION = "1.10";
+	private static final String VERSION = "1.11";
 	private Map<String, Object> config = null;
 	private int port = 8080;
 	private JPanel contentPane;
 	private Tomcat tomcat = null;
 	private TrayIcon icon = null;
 	private JList<String> appList = null;
+	private Image iconImage = null;
 	
 	private static ResourceBundle resource = ResourceBundle.getBundle("runwar.RunWar"); 
 	
@@ -75,6 +81,8 @@ public class RunWar extends JFrame {
 			public void run() {
 				try {
 					RunWar frame = new RunWar();
+					frame.config = frame.getConfig();
+					frame.setOption(args);
 					frame.start();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -84,15 +92,34 @@ public class RunWar extends JFrame {
 	}
 
 	/**
+	 * コマンドラインオプションを設定します。
+	 * @param args コマンドライン引数の配列。
+	 */
+	private void setOption(String[] args) {
+		if (this.config.get("mode") == null) {
+			this.config.put("mode", MODE_TASKTRAY);
+		}
+		if (!SystemTray.isSupported()) {
+			this.config.put("mode", MODE_WINDOW);
+		}
+		for (String opt: args) {
+			if ("-w".equals(opt)) {
+				this.config.put("mode", MODE_WINDOW);
+			} else if ("-t".equals(opt)) {
+				this.config.put("mode", MODE_TASKTRAY);
+			}
+		}
+	}
+	
+	/**
 	 * タスクトレイを設定します。
 	 * @throws Exception 例外。
 	 */
 	private void setTaskTrayIcon() throws Exception {
-		// アイコンイメージの読み込み
-		Image image = ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("runwar.png"));
-		this.setIconImage(image);
 		// トレイアイコン生成
-		this.icon = new TrayIcon(image, SYSTEM_NAME);
+		Dimension d = SystemTray.getSystemTray().getTrayIconSize();
+		Image img = this.iconImage.getScaledInstance((int) d.getWidth(), (int) d.getHeight(), Image.SCALE_SMOOTH);
+		this.icon = new TrayIcon(img, SYSTEM_NAME);
 		// イベント登録
 		icon.addActionListener(new ActionListener() {
 			@Override
@@ -138,7 +165,9 @@ public class RunWar extends JFrame {
 		SystemTray.getSystemTray().add(icon);
 	}
 	
-	
+	/**
+	 * ウインドウのメニューを設定します。
+	 */
 	private void setFrameMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu fileMenu = new JMenu(RunWar.resource.getString("menu.file"));
@@ -168,11 +197,19 @@ public class RunWar extends JFrame {
 	/**
 	 * コンストラクタ。
 	 */
-	public RunWar() {
+	public RunWar() throws Exception {
+		// アイコンイメージの読み込み
+		this.iconImage = ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("runwar.png"));
+		this.setIconImage(this.iconImage);
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				RunWar.this.setVisible(false);
+				if (MODE_TASKTRAY.equals(RunWar.this.getMode())) {
+					RunWar.this.setVisible(false);
+				} else {
+					RunWar.this.stop();
+					System.exit(0);
+				}
 			}
 		});
 		setTitle(SYSTEM_NAME);
@@ -191,7 +228,12 @@ public class RunWar extends JFrame {
 		JButton closeButton = new JButton(RunWar.resource.getString("button.close"));
 		closeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RunWar.this.setVisible(false);
+				if (MODE_TASKTRAY.equals(RunWar.this.getMode())) {
+					RunWar.this.setVisible(false);
+				} else {
+					RunWar.this.stop();
+					System.exit(0);
+				}
 			}
 		});
 		panel.add(closeButton);
@@ -241,6 +283,15 @@ public class RunWar extends JFrame {
 		}
 		return ret;
 	}
+
+	/**
+	 * モードを取得します。
+	 * @return モード。
+	 */
+	private String getMode() {
+		String mode = (String) this.config.get("mode");
+		return mode;
+	}
 	
 	/**
 	 * アプリケーションの起動。
@@ -248,7 +299,6 @@ public class RunWar extends JFrame {
 	private void start() {
 		try {
 			System.out.println("start");
-			config = this.getConfig();
 			this.tomcat = new Tomcat();
 			if (config.get("port") != null) {
 				port = Integer.parseInt(config.get("port").toString());
@@ -269,7 +319,12 @@ public class RunWar extends JFrame {
 				appList.setModel(model);
 				System.out.println("port=" + tomcat.getConnector().getPort() + ",protocol=" + tomcat.getConnector().getProtocol());
 				tomcat.start();
-				this.setTaskTrayIcon();
+				if (MODE_TASKTRAY.equals(this.getMode())) {
+					this.setTaskTrayIcon();
+				} else if (MODE_WINDOW.equals(this.getMode())) {
+					this.setVisible(true);
+					this. setExtendedState(ICONIFIED);
+				}
 			}
 			for (Map<String, Object> m: webapps) {
 				this.runBrowser(m);
@@ -354,6 +409,13 @@ public class RunWar extends JFrame {
 	 * バージョン情報。
 	 */
 	private void about() {
-		this.icon.displayMessage(RunWar.resource.getString("menuitem.about"), SYSTEM_NAME + " ver." + VERSION + " (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.", MessageType.INFO);
+		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
+		if (MODE_TASKTRAY.equals(this.getMode())) {
+			this.icon.displayMessage(RunWar.resource.getString("menuitem.about"), vinf, MessageType.INFO);
+		} else {
+			JOptionPane.showMessageDialog(null, vinf);
+		}
 	}
 }
+
+
