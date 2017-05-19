@@ -118,7 +118,7 @@ public class RunWar extends JFrame {
 	private void setTaskTrayIcon() throws Exception {
 		// トレイアイコン生成
 		Dimension d = SystemTray.getSystemTray().getTrayIconSize();
-		Image img = this.iconImage.getScaledInstance((int) d.getWidth(), (int) d.getHeight(), Image.SCALE_SMOOTH);
+		Image img = this.iconImage.getScaledInstance((int) d.getWidth() - 2, (int) d.getHeight() - 2, Image.SCALE_SMOOTH);
 		this.icon = new TrayIcon(img, SYSTEM_NAME);
 		// イベント登録
 		icon.addActionListener(new ActionListener() {
