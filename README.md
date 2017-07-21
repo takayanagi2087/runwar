@@ -26,5 +26,8 @@ Java8がインストールされたPC。
 ## Licence
 [MIT](https://github.com/takayanagi2087/dataforms/blob/master/LICENSE)  
 
-
+## Dependent library
+[Tomcat-embed](http://tomcat.apache.org/index.html)  
+[Apache Derby](https://db.apache.org/derby/)  
+[Jsonic](http://jsonic.osdn.jp/)  
 
