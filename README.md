@@ -30,4 +30,5 @@ Java8がインストールされたPC。
 [Tomcat-embed](http://tomcat.apache.org/index.html)  
 [Apache Derby](https://db.apache.org/derby/)  
 [Jsonic](http://jsonic.osdn.jp/)  
+[JavaMail](https://github.com/javaee/javamail)  
 

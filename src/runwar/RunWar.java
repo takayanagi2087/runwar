@@ -62,7 +62,7 @@ public class RunWar extends JFrame {
 	private static final String MODE_WINDOW = "window";
 	private static final String MODE_TASKTRAY = "tasktray";
 	private static final String SYSTEM_NAME = "Runwar";
-	private static final String VERSION = "1.11";
+	private static final String VERSION = "1.12";
 	private Map<String, Object> config = null;
 	private int port = 8080;
 	private JPanel contentPane;

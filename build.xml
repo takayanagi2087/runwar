@@ -24,6 +24,7 @@
             <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/lib/tomcat-embed-logging-juli.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/lib/tomcat-embed-logging-log4j.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/lib/tomcat-embed-websocket.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/lib/javax.mail.jar"/>
         </jar>
     </target>
 </project>
