@@ -9,7 +9,7 @@ dataforms.jarで作成したアプリケーションを、スタンドアロー�
 runwar.jarを起動したPCは一時的にWebアプリケーションサーバになっているため、同一LAN内の別のPCからも起動されているWebアプリケーションを利用することができます。
 
 ## Install
-Java8がインストールされたPCで、[リリース](https://github.com/takayanagi2087/runwar/releases)からrunwar_XXXX.zipをダウンロードし、適切なフォルダに展開してください。  
+Java8以上がインストールされたPCで、[リリース](https://github.com/takayanagi2087/runwar/releases)からrunwar_XXXX.zipをダウンロードし、適切なフォルダに展開してください。  
 このパッケージにはdataforms.jarのサンプルアプリケーション dfbbsが入っています。  
 展開されたフォルダ中のrunwar.jarをダブルクリックするか以下のコマンドの実行で、
 簡易アプリケーションサーバを開始しデフォルトブラウザを起動します。  
@@ -21,7 +21,7 @@ developerのパスワードを登録すると、Apache derbyのデータベー�
 
 
 ## Requirement
-Java8がインストールされたPC。 
+Java8以上がインストールされたPC。 
 
 ## Licence
 [MIT](https://github.com/takayanagi2087/dataforms/blob/master/LICENSE)  
@@ -31,4 +31,4 @@ Java8がインストールされたPC。
 [Apache Derby](https://db.apache.org/derby/)  
 [Jsonic](http://jsonic.osdn.jp/)  
 [JavaMail](https://github.com/javaee/javamail)  
-
+[JavaBeans Activation Framework (JAF)](https://github.com/javaee/activation)
