@@ -6,7 +6,7 @@
 	<property name="dir.buildfile" value="."/>
 	<property name="dir.workspace" value="${dir.buildfile}/.."/>
 	<property name="dir.jarfile" value="."/>
-	<property name="version.num" value="1.14"/>
+	<property name="version.num" value="1.13"/>
 	<property name="user" value="Masahiko Takayanagi"/>
 	<tstamp>
 		<format property="build.time" pattern="yyyy/MM/dd HH:mm:ss.SSS" />

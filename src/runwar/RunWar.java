@@ -70,9 +70,9 @@ public class RunWar extends JFrame {
 	private TrayIcon icon = null;
 	private JList<String> appList = null;
 	private Image iconImage = null;
-	
-	private static ResourceBundle resource = ResourceBundle.getBundle("runwar.RunWar"); 
-	
+
+	private static ResourceBundle resource = ResourceBundle.getBundle("runwar.RunWar");
+
 	/**
 	 * Launch the application.
 	 */
@@ -110,7 +110,7 @@ public class RunWar extends JFrame {
 			}
 		}
 	}
-	
+
 	/**
 	 * タスクトレイを設定します。
 	 * @throws Exception 例外。
@@ -164,7 +164,7 @@ public class RunWar extends JFrame {
 		// タスクトレイに格納
 		SystemTray.getSystemTray().add(icon);
 	}
-	
+
 	/**
 	 * ウインドウのメニューを設定します。
 	 */
@@ -193,7 +193,7 @@ public class RunWar extends JFrame {
 		menuBar.add(helpMenu);
 		this.setJMenuBar(menuBar);
 	}
-	
+
 	/**
 	 * コンストラクタ。
 	 */
@@ -214,7 +214,7 @@ public class RunWar extends JFrame {
 		});
 		setTitle(SYSTEM_NAME);
 		this.setFrameMenu();
-		
+
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 346, 237);
 		contentPane = new JPanel();
@@ -292,7 +292,7 @@ public class RunWar extends JFrame {
 		String mode = (String) this.config.get("mode");
 		return mode;
 	}
-	
+
 	/**
 	 * アプリケーションの起動。
 	 */
@@ -329,7 +329,7 @@ public class RunWar extends JFrame {
 			for (Map<String, Object> m: webapps) {
 				this.runBrowser(m);
 			}
-			
+
 			if (started) {
 				System.exit(0);
 			}
@@ -404,12 +404,12 @@ public class RunWar extends JFrame {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * バージョン情報。
 	 */
 	private void about() {
-		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017,2018 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
+		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017-2020 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
 		if (MODE_TASKTRAY.equals(this.getMode())) {
 			this.icon.displayMessage(RunWar.resource.getString("menuitem.about"), vinf, MessageType.INFO);
 		} else {
