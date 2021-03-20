@@ -1,8 +1,4 @@
 /**
- * 
- */
-/**
- * @author takayanagi
- *
+ * Runwarのメインパッケージ。
  */
 package runwar;

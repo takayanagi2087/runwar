@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="lib/derby.jar"/>
 	<classpathentry kind="lib" path="lib/derbyLocale_ja_JP.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-core.jar"/>
+	<classpathentry kind="lib" path="lib/tomcat-embed-core.jar" sourcepath="C:/Users/takay/AppData/Local/Temp/.org.sf.feeling.decompiler1614304620852/source/tomcat-embed-core-9.0.12-sources.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-embed-el.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-embed-jasper.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-embed-websocket.jar"/>

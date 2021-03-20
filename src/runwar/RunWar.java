@@ -16,11 +16,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.BindException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -57,24 +62,67 @@ import net.arnx.jsonic.JSON;
  *
  */
 public class RunWar extends JFrame {
-
-
+	/**
+	 * 停止コマンド。
+	 */
+	private static final String SHUTDOWN_COMMAND = "shutdown";
+	/**
+	 * Windowモード。
+	 */
 	private static final String MODE_WINDOW = "window";
+	/**
+	 * TASKTRAYモード。
+	 */
 	private static final String MODE_TASKTRAY = "tasktray";
+	/**
+	 * システム名。
+	 */
 	private static final String SYSTEM_NAME = "Runwar";
-	private static final String VERSION = "1.13";
+	/**
+	 * バージョン。
+	 */
+	private static final String VERSION = "1.14";
+	/**
+	 * 設定情報。
+	 */
 	private Map<String, Object> config = null;
+	/**
+	 * httpポート。
+	 */
 	private int port = 8080;
+	/**
+	 * shutdownボード。
+	 */
+	private int shutdownPort = 8005;
+	/**
+	 * 内容表示領域。
+	 */
 	private JPanel contentPane;
+	/**
+	 * Tomcat。
+	 */
 	private Tomcat tomcat = null;
+	/**
+	 * タスクトレイアイコン。
+	 */
 	private TrayIcon icon = null;
+	/**
+	 * アプリケーション。
+	 */
 	private JList<String> appList = null;
+	/**
+	 * アイコンイメージ。
+	 */
 	private Image iconImage = null;
 
+	/**
+	 * リソース。
+	 */
 	private static ResourceBundle resource = ResourceBundle.getBundle("runwar.RunWar");
 
 	/**
 	 * Launch the application.
+	 * @param args コマンドライン引数。
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -82,8 +130,17 @@ public class RunWar extends JFrame {
 				try {
 					RunWar frame = new RunWar();
 					frame.config = frame.getConfig();
-					frame.setOption(args);
-					frame.start();
+					if (frame.config.get("port") != null) {
+						frame.port = Integer.parseInt(frame.config.get("port").toString());
+					}
+					if (frame.config.get("shutdownPort") != null) {
+						frame.shutdownPort = Integer.parseInt(frame.config.get("shutdownPort").toString());
+					}
+					if (frame.setOption(args)) {
+						frame.start();
+					} else {
+						frame.shutdown();
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -94,8 +151,10 @@ public class RunWar extends JFrame {
 	/**
 	 * コマンドラインオプションを設定します。
 	 * @param args コマンドライン引数の配列。
+	 * @return 停止オプションが指定された場合false。
 	 */
-	private void setOption(String[] args) {
+	private boolean setOption(String[] args) {
+		boolean ret = true;
 		if (this.config.get("mode") == null) {
 			this.config.put("mode", MODE_TASKTRAY);
 		}
@@ -107,8 +166,11 @@ public class RunWar extends JFrame {
 				this.config.put("mode", MODE_WINDOW);
 			} else if ("-t".equals(opt)) {
 				this.config.put("mode", MODE_TASKTRAY);
+			} else if ("-s".equals(opt)) {
+				ret = false;
 			}
 		}
+		return ret;
 	}
 
 	/**
@@ -300,14 +362,11 @@ public class RunWar extends JFrame {
 		try {
 			System.out.println("start");
 			this.tomcat = new Tomcat();
-			if (config.get("port") != null) {
-				port = Integer.parseInt(config.get("port").toString());
-			}
 			boolean started = this.isStarted();
 			@SuppressWarnings("unchecked")
 			List<Map<String, Object>> webapps = (List<Map<String, Object>>) config.get("webapps");
 			if (!started) {
-				tomcat.setPort(port);
+				tomcat.setPort(this.port);
 				tomcat.enableNaming();
 				DefaultListModel<String> model = new DefaultListModel<String>();
 				for (Map<String, Object> m: webapps) {
@@ -325,6 +384,10 @@ public class RunWar extends JFrame {
 					this.setVisible(true);
 					this. setExtendedState(ICONIFIED);
 				}
+				// シャットダウンポートの監視スレッド。
+				ShutdownListenThread th = new ShutdownListenThread();
+				th.start();
+
 			}
 			for (Map<String, Object> m: webapps) {
 				this.runBrowser(m);
@@ -406,10 +469,64 @@ public class RunWar extends JFrame {
 	}
 
 	/**
+	 * localhostのIPアドレス。
+	 */
+	private static final String LOCALHOST = "127.0.0.1";
+
+	/**
+	 * シャットダウンコマンドの送信。
+	 * @throws Exception 例外。
+	 */
+	private void shutdown() throws Exception {
+		try (Socket s = new Socket(LOCALHOST, this.shutdownPort)) {
+			try (PrintWriter writer = new PrintWriter(s.getOutputStream(), true)) {
+				writer.println(SHUTDOWN_COMMAND);
+			}
+		}
+
+	}
+
+	/**
+	 * シャッドダウン命令受付スレッド。
+	 *
+	 */
+	private class ShutdownListenThread extends Thread {
+
+
+		@Override
+		public void run() {
+			try {
+				ServerSocket ss = new ServerSocket();
+				try {
+					ss.bind(new InetSocketAddress(LOCALHOST, RunWar.this.shutdownPort));
+					Socket s = ss.accept();
+					try {
+						BufferedReader reader = new BufferedReader(new InputStreamReader(s.getInputStream()));
+						while (true) {
+								String line = reader.readLine();
+								if (SHUTDOWN_COMMAND.equals(line)) {
+									RunWar.this.stop();
+									break;
+								}
+						}
+					} finally {
+						s.close();
+					}
+				} finally {
+					ss.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+	/**
 	 * バージョン情報。
 	 */
 	private void about() {
-		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017-2020 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
+		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017-2021 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
 		if (MODE_TASKTRAY.equals(this.getMode())) {
 			this.icon.displayMessage(RunWar.resource.getString("menuitem.about"), vinf, MessageType.INFO);
 		} else {
