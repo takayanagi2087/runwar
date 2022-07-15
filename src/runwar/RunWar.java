@@ -461,6 +461,7 @@ public class RunWar extends JFrame {
 		System.out.println("stop");
 		try {
 			this.tomcat.stop();
+			Thread.sleep(3000);
 			this.tomcat.destroy();
 			System.exit(0);
 		} catch (Exception e) {
