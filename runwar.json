@@ -9,6 +9,7 @@
 	shutdownPort:8005,
 	// 起動ブラウザを固定したい場合は以下の設定を参考にしてください。
 	// この設定を有効にすると、Chromeがフルスクリーンモードで起動します。
+	// また、デフォルトブラウザが起動しない場合は、このオプションにブラウザのパスを指定してください。
 	//browser:[
 	//	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
 	//	"--start-fullscreen"
@@ -16,7 +17,7 @@
 	// 配列webappsに実行するアプリケーションを設定します。",
 	webapps:[
 		{
-			title:"BBSシステム(dataforms.jarのサンプルアプリケーション)",
+			title:"dataforms2.jarサンプルアプリケーション",
 			context:"/sample",
 			startPage:"/index.html",
 			docBase:"webapps/sample",

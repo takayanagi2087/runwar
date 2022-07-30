@@ -527,7 +527,7 @@ public class RunWar extends JFrame {
 	 * バージョン情報。
 	 */
 	private void about() {
-		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017-2021 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
+		String vinf = SYSTEM_NAME + " ver." + VERSION + " (C) 2017-2022 Masahiko Takayanagi.\nPowerd by Apache tomcat & Apache derby.";
 		if (MODE_TASKTRAY.equals(this.getMode())) {
 			this.icon.displayMessage(RunWar.resource.getString("menuitem.about"), vinf, MessageType.INFO);
 		} else {
