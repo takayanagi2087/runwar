@@ -1,0 +1,58 @@
+[
+	{
+		"deleteFlag": "0",
+		"password": "4zGEDMXfIdzyGhKoAl7X9A==",
+		"createUserId": "-1",
+		"loginId": "developer",
+		"updateUserId": "-1",
+		"mailAddress": "",
+		"enabledFlag": "1",
+		"userName": "developer",
+		"userId": "1",
+		"externalUserFlag": "0",
+		"updateTimestamp": "20220718151237335",
+		"createTimestamp": "20220718151237335"
+	},
+	{
+		"deleteFlag": "0",
+		"password": "4zGEDMXfIdzyGhKoAl7X9A==",
+		"createUserId": "1",
+		"loginId": "admin",
+		"updateUserId": "1",
+		"mailAddress": "",
+		"enabledFlag": "1",
+		"userName": "admin",
+		"userId": "2",
+		"externalUserFlag": "0",
+		"updateTimestamp": "20220718155512763",
+		"createTimestamp": "20220718155512763"
+	},
+	{
+		"deleteFlag": "0",
+		"password": "4zGEDMXfIdzyGhKoAl7X9A==",
+		"createUserId": "1",
+		"loginId": "user",
+		"updateUserId": "1",
+		"mailAddress": "",
+		"enabledFlag": "1",
+		"userName": "user",
+		"userId": "3",
+		"externalUserFlag": "0",
+		"updateTimestamp": "20220718155548659",
+		"createTimestamp": "20220718155548659"
+	},
+	{
+		"deleteFlag": "0",
+		"password": "4zGEDMXfIdzyGhKoAl7X9A==",
+		"createUserId": "1",
+		"loginId": "guest",
+		"updateUserId": "1",
+		"mailAddress": "",
+		"enabledFlag": "1",
+		"userName": "guest",
+		"userId": "4",
+		"externalUserFlag": "0",
+		"updateTimestamp": "20220718155627028",
+		"createTimestamp": "20220718155627028"
+	}
+]

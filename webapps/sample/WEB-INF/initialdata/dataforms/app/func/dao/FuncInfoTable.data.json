@@ -1,0 +1,32 @@
+[
+	{
+		"deleteFlag": "0",
+		"createUserId": "1",
+		"updateUserId": "1",
+		"sortOrder": "0",
+		"funcPath": "/sample",
+		"funcId": "1000",
+		"updateTimestamp": "20220718152024624",
+		"createTimestamp": "20220718152024624"
+	},
+	{
+		"deleteFlag": "0",
+		"createUserId": "1",
+		"updateUserId": "1",
+		"sortOrder": "1",
+		"funcPath": "/dataforms/app",
+		"funcId": "1",
+		"updateTimestamp": "20220718152024624",
+		"createTimestamp": "20220718152024624"
+	},
+	{
+		"deleteFlag": "0",
+		"createUserId": "1",
+		"updateUserId": "1",
+		"sortOrder": "2",
+		"funcPath": "/dataforms/devtool",
+		"funcId": "2",
+		"updateTimestamp": "20220718152024625",
+		"createTimestamp": "20220718152024625"
+	}
+]

@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!--
+		開発ツール関連設定
+	 -->
+	<!-- 開発ツールのjavaソース出力フォルダを指定します。 -->
+	<context-param>
+		<param-name>java-source-path</param-name>
+		<param-value>C:/eclipse/workspaceGithub/sample220/src/main/java</param-value>
+	</context-param>
+
+	<!-- 開発ツールのhtml,javascript等のWEBリソース出力フォルダを指定します。 -->
+	<context-param>
+		<param-name>web-source-path</param-name>
+		<param-value>C:/eclipse/workspaceGithub/sample220/src/main/webapp</param-value>
+	</context-param>
+	<!-- 開発ツールでデータをエクスポート/インポートする際に使用するパスを指定します。 -->
+	<context-param>
+		<param-name>export-import-dir</param-name>
+		<param-value>/tmp/data</param-value>
+	</context-param>
+	<!--
+		開発ツールの無効フラグを設定します。
+		システムリリース時には無効にしたほうが安全です。
+	-->
+	<context-param>
+		<param-name>disable-developer-tools</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<!--
+		 クライアントログレベルを指定します。
+		 javascriptでのコンソール出力はconsoleではなくloggerを使用してください。
+		 loggerは基本的にconsoleをコピーしたものですが、以下の設定に応じて、
+		 log,info,warn,errorメソットが何もしないメソッドになります。
+	 -->
+	<context-param>
+		<param-name>client-log-level</param-name>
+		<param-value>debug</param-value>
+		<!-- param-value>debug</param-value -->
+		<!-- param-value>info</param-value -->
+		<!-- param-value>warn</param-value -->
+		<!-- param-value>error</param-value -->
+		<!-- param-value>none</param-value -->
+	</context-param>
+
+	<!--
+		このライブラリはサーバ側の処理でdataforms2.jar中のWEBリソース(html,css,jsファイル)をアクセスしています。
+		dataforms2.jarのMETA-INF/resources中のファイルはhttp経由で取得しているため、このパラメータで指定したURLを使用してアクセスします。
+		以下のURLが指定されていない場合、リクエストされたURLをそのまま使用してアクセスします。
+		そのためApacheを経由しSSLを使用した場合等は、サーバー側のWEBリソースアクセスもApacheのSSL経由になってしまい効率は良くありません。
+		SSLを使用する場合はアプリケーションサーバのhttpポートを指定したURLを指定してください。
+	 -->
+	<!--
+	<context-param>
+		<param-name>web-resource-url</param-name>
+		<param-value>http://localhost:8080</param-value>
+	</context-param>
+	-->
+
+	<!--
+		データベース初期化時に作成するユーザのレベル(developerまたはadmin)を指定します。
+		開発環境ではdeveloperを指定してください。
+		システムの完成後一般ユーザに配布するwarファイルを作成する場合はadminを指定してください。
+	 -->
+	<context-param>
+		<param-name>initialize-user-level</param-name>
+		<param-value>developer</param-value>
+		<!--
+		<param-value>developer</param-value>
+		<param-value>admin</param-value>
+		-->
+	</context-param>
+
+	<!--
+		データベースの作成時に、初期化するパッケージリストを指定します。
+		パッケージ名は,区切りで複数設定することができます。
+		データベースを作成するときに、このパッケージリストを参照し、
+		このパッケージ中のテーブルクラスに対応するテーブルを作成します。
+		なおdataforms.appパッケージは必ず指定してください。
+	-->
+	<context-param>
+		<param-name>initialize-package-list</param-name>
+		<param-value>
+			dataforms.app
+			,sample
+		</param-value>
+	</context-param>
+
+	<!--
+		サポートする言語コードを指定します。
+		default以外の言語コードを","区切りで指定します。
+		EnumOptionNameTable等、言語ごとに名称を登録するテーブルで使用します。
+	-->
+	<context-param>
+		<param-name>support-language</param-name>
+		<param-value>ja</param-value>
+	</context-param>
+
+	<!--
+		ブラウザの言語設定を無視し、言語を固定する場合は以下の設定を有効にします。
+	-->
+	<!--
+	<context-param>
+		<param-name>fixed-language</param-name>
+		<param-value>en</param-value>
+	</context-param>
+	 -->
+
+	<!--
+		自動ログインの有効/無効を設定します。
+	 -->
+	<context-param>
+		<param-name>auto-login</param-name>
+		<param-value>enabled</param-value>
+		<!--
+		<param-value>enabled</param-value>
+		<param-value>disabled</param-value>
+		-->
+	</context-param>
+
+	<!--
+		trueを設定すると、自動ログインクッキーにSecureを設定します。
+		SSLを使用する場合、trueに設定してください。
+	 -->
+	<context-param>
+		<param-name>secure-auto-login-cookie</param-name>
+		<param-value>false</param-value>
+		<!--
+		<param-value>true</param-value>
+		<param-value>false</param-value>
+		-->
+	</context-param>
+
+	<!--
+		Babelを使用したIE対応。
+
+		IEの使用はお勧めしませんが、どうしてもIEをサポートする必要がある場合、
+		サーバーサイドにBabelをインストールしallowIEをtrueにしてください。
+		さらに、babelCommandパラメータにES6->ES5変換を行うコマンドを指定してください。
+		この設定でIEの初回アクセス時にES6->ES5変換を行います。
+		そのためIEの初回アクセスは遅くなりますが、二回目以降は変換結果をbabelWork保存しているため、
+		ES6->ES5変換は動作しません。
+		babelCommandに"standalone"を指定すると、babel-standaloneを使用してIE側でES6->ES5変換を行うようになります。
+		この場合サーバーサイドにbabelをインストールしなくても動作しますが、実用的なものではありません。
+		babelをインストールしていない開発環境で、IEのテストが必要な場合に使用してください。
+	 -->
+	<context-param>
+		<param-name>ie-support</param-name>
+		<param-value>
+			{
+				// IEの許可設定。
+				// true:babelを使用してIEをサポート,false:IEはエラー。
+				"allowIE": false
+				// BabelがES5のソースを展開するフォルダ
+				, "babelWork": "/tmp/babel"
+				// サーバーサイドでES6->ES5変換を行うコマンドを記述します。
+				, "babelCommand": "C:/Users/takay/AppData/Roaming/npm/babel.cmd --presets C:/Users/takay/AppData/Roaming/npm/node_modules/babel-preset-es2015"
+				// , "babelCommand": "standalone"
+			}
+		</param-value>
+	</context-param>
+
+	<!--
+		JNDIデータソースのlookupにはjndi-prefixとdata-sourceを結合した文字列で行います。
+	 -->
+	<!-- JNDIデータソースの前につける文字列 -->
+	<context-param>
+		<param-name>jndi-prefix</param-name>
+		<param-value>java:/comp/env/</param-value>
+	</context-param>
+
+	<!-- 使用するJNDIデータソースを指定する -->
+	<context-param>
+		<param-name>data-source</param-name>
+		<param-value>jdbc/dfdb</param-value>
+	</context-param>
+
+	<!--
+		context.xmlに設定したメールセッション名を指定します。
+	 -->
+	<context-param>
+		<param-name>mail-session</param-name>
+		<param-value>mail/Session</param-value>
+	</context-param>
+
+	<!-- システムがメールを送信際に使用するFromを指定します。 -->
+	<context-param>
+		<param-name>mail-from</param-name>
+		<param-value>hoge@hogehoge.jp</param-value>
+	</context-param>
+
+	<!-- フレームレイアウトのパスを指定します。 -->
+	<context-param>
+		<param-name>frame-path</param-name>
+		<!-- tableタグを使ったレイアウト(旧バージョンの互換性あるレイアウト) -->
+		<!--
+		<param-value>/frame/default</param-value>
+		 -->
+		<!-- display:flexを使用したレイアウト(今後はこちらの仕様を推奨します) -->
+		<param-value>/frame/flex</param-value>
+	</context-param>
+
+	<!--
+		ページのオーバーライドをJSON形式で指定します。
+		既存ページを組み替える場合、新たにページクラスを作成し
+		既存ページクラスを置き換える設定を以下に記述します。
+		またdataforms.app.base.page.HiddenPageに置き換えれば
+		メニューにも表示されず、アクセスできないページになります。
+		つまり既存ページを隠すことができます。
+	 -->
+	<context-param>
+		<param-name>page-override</param-name>
+		<param-value>
+			[
+				// ダミー
+				["", ""]
+				// パスワード変更ページを隠す場合は以下を有効にしてください
+				// , ["dataforms.app.user.page.ChangePasswordPage", "dataforms.app.base.page.HiddenPage"]
+				// ユーザ情報変更ページを隠す場合は以下を有効にしてください。
+				// , ["dataforms.app.user.page.UserSelfEditPage", "dataforms.app.base.page.HiddenPage"]
+				//
+				// 外部ユーザ登録関連(外部ユーザ登録機能を無効にするには以下の2ページを無効にしてください)
+				//
+				// ユーザ登録ページを隠す場合は以下を有効にしてください。
+				// , ["dataforms.app.user.page.UserRegistPage", "dataforms.app.base.page.HiddenPage"]
+				// ユーザ有効化ページを隠す場合は以下を有効にしてください。
+				// , ["dataforms.app.user.page.UserEnablePage", "dataforms.app.base.page.HiddenPage"]
+				//
+				// パスワードリセット機能(パスワードリセット機能を無効にするには以下の2ページを無効にしてください)
+				//
+				// パスワードリセットメール送信ページを隠す場合は以下を有効にしてください。
+				// , ["dataforms.app.user.page.PasswordResetMailPage", "dataforms.app.base.page.HiddenPage"]
+				// パスワードリセットページを隠す場合は以下を有効にしてください。
+				// , ["dataforms.app.user.page.PasswordResetPage", "dataforms.app.base.page.HiddenPage"]
+			]
+		</param-value>
+	</context-param>
+
+	<!--
+		以下のパスはdataforms2.jarで用意してあるパスが指定されています。
+		独自のページを実装した場合切り替えることができます。
+	 -->
+	<!--
+		トップページを指定します。
+		このページはシステムやユーザの状態に応じて、ログイン画面やサイトマップに遷移します。
+	 -->
+	<context-param>
+		<param-name>top-page</param-name>
+		<param-value>/dataforms/app/top/page/TopPage</param-value>
+	</context-param>
+
+	<!--
+		外部ユーザ登録ページのパスを指定します。
+		デフォルトのパスはdataforms2.jar中のページ"dataforms.app.user.page.UserRegistPage"のパスになっています。
+		インターネットからのユーザ登録を許可しない場合は、以下の設定をコメントアウトし、
+		page-overrideパラメータで、"dataforms.app.user.page.UserRegistPage"を無効にしてください。
+	 -->
+	<context-param>
+		<param-name>user-regist-page</param-name>
+		<param-value>/dataforms/app/user/page/UserRegistPage</param-value>
+	</context-param>
+
+
+	<!--
+		ユーザ情報編集フォームのメールアドレスを必須にするかどうかを設定します。
+	 -->
+	<context-param>
+		<param-name>user-edit-form-config</param-name>
+		<param-value>
+			{
+				"requiredMailAddress": false // メールアドレスを必須とする。
+			}
+		</param-value>
+	</context-param>
+
+
+	<!--
+		外部ユーザ登録ページ設定情報。
+	 -->
+	<context-param>
+		<param-name>user-regist-page-config</param-name>
+		<param-value>
+			{
+				"loginIdIsMail": true, // メールアドレスをログインIDとする。
+				"mailCheck": true, // メールアドレスのチェックを行う。
+				"sendUserEnableMail": true // ユーザ有効化ページのURLをメールする。
+			}
+		</param-value>
+	</context-param>
+
+	<!--
+		外部ユーザ有効化ページのパスを指定します。
+		外部ユーザ登録ページ設定でユーザ有効化ページのURLをメールするように設定した場合、このページのURLをメールで送信します。
+	 -->
+	<context-param>
+		<param-name>user-enable-page</param-name>
+		<param-value>/dataforms/app/user/page/UserEnablePage</param-value>
+	</context-param>
+
+	<!--
+		パスワードリセットメール送信ページのパスを指定します。
+		この設定をコメントアウトするとパスワードリセットリンクが表示されません。
+	 -->
+	<context-param>
+		<param-name>password-reset-mail-page</param-name>
+		<param-value>/dataforms/app/user/page/PasswordResetMailPage</param-value>
+	</context-param>
+
+	<!--
+		パスワードリセットページのパスを指定します。
+		パスワードリセットメールで、このページのURLを通知します。
+	 -->
+	<context-param>
+		<param-name>password-reset-page</param-name>
+		<param-value>/dataforms/app/user/page/PasswordResetPage</param-value>
+	</context-param>
+
+
+	<!-- 一時ファイルを置くパスを指定します。 -->
+	<context-param>
+		<param-name>temp-dir</param-name>
+		<param-value>/tmp</param-value>
+	</context-param>
+
+	<!-- jQueryなどの標準ライブラリなどを読み込むhtmlを指定します。 -->
+	<context-param>
+		<param-name>css-and-scripts</param-name>
+		<param-value>/frame/jslib.html</param-value>
+	</context-param>
+
+	<!-- エラーページのパスを指定します。 -->
+	<context-param>
+		<param-name>error-page</param-name>
+		<param-value>/dataforms/app/errorpage/ErrorPage</param-value>
+	</context-param>
+
+	<!--
+		 クライアントバリデーションの有無を指定します。
+		 これをfalseに設定するとJavascriptでのバリデーションが停止します。
+	 -->
+	<context-param>
+		<param-name>client-validation</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- アップロードデータを保存するフォルダを指定します。 -->
+	<context-param>
+		<param-name>upload-data-folder</param-name>
+		<param-value>./uploadData</param-value>
+	</context-param>
+
+	<!--
+		暗号化設定
+	 -->
+	<context-param>
+		<param-name>crypt-config</param-name>
+		<param-value>
+			{
+				//
+				// 暗号化アルゴリズムを選択します。("des" or "aes")
+				"algorithm": "aes",
+				//
+				// AESの初期化ベクトルを指定します。
+				// AES初期化ベクトルは16Byteである必要があるため、自動的に保管して使用します。
+				"aesInitialVector": "Initi@lVect0r",
+				//
+				// ===================================================================================
+				// 以下項目はDESパスワードまたはAESキーを指定します。
+				// AESキーは16Byteである必要があるため、自動的に保管して使用します。
+				// ===================================================================================
+				// CryptUtilで使用するデフォルトのDESパスワードまたはAESキーを指定します。
+				// UserInfoTableのパスワードの暗号化で使用するので、
+				// 変更する場合は事前にUserInfoTableのパスワードの再構築を行う必要があります。
+				// nullを指定するとライブラリにハードコーディングされたものを使用します。
+				"defaultPassword": null,
+				// QueryStringを暗号化する場合に使用するDESパスワードまたはAESキーを指定します。
+				// BLOBデータ等のダウンロードパラメータの暗号化に使用しています。
+				// 運用時に変更しても問題ありません。
+				// nullを指定するとライブラリにハードコーディングされたものを使用します。
+				"queryStringCryptPassword": "QueryStringPassword",
+				// CSRF対策に使用するDESパスワードまたはAESキーを指定します。
+				// 指定されたDESパスワードまたはAESキーでセッションIDを暗号化し、
+				// CSRFトークンとしてブラウザに送信します。
+				// 運用時に変更しても問題ありません。
+				// nullを指定するとCSRF対策を行いません。
+				"csrfSessionidCryptPassword": "CSRFpassword"
+			}
+		</param-value>
+	</context-param>
+
+	<!--
+		ブラウザがクッキーを許可していることを確認する場合、trueを指定してください。
+	-->
+	<context-param>
+		<param-name>cookie-check</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<!--
+		クライアントに送信して使用するメッセージリソースの名称を指定します。
+		このファイルはdataforms2.jar内に存在します。
+	-->
+	<context-param>
+		<param-name>client-messages</param-name>
+		<param-value>/frame/messages/ClientMessages</param-value>
+	</context-param>
+
+	<!--
+		サーバ側で使用するメッセージリソースの名称を指定します。
+		このファイルはdataforms2.jar内に存在します。
+	 -->
+	<context-param>
+		<param-name>messages</param-name>
+		<param-value>/frame/messages/Messages</param-value>
+	</context-param>
+
+	<!--
+		クライアントに送信して使用するアプリケーション用メッセージリソースの名称を指定します。
+		このファイルはアプリケーション側で用意します。
+	-->
+	<context-param>
+		<param-name>app-client-messages</param-name>
+		<param-value>/frame/messages/AppClientMessages</param-value>
+	</context-param>
+
+	<!--
+		サーバ側で使用するアプリケーション用メッセージリソースの名称を指定します。
+		このファイルはアプリケーション側で用意します。
+	-->
+	<context-param>
+		<param-name>app-messages</param-name>
+		<param-value>/frame/messages/AppMessages</param-value>
+	</context-param>
+	<!--
+		メッセージリソースのブラウザ送信設定
+		CLIENT_ONLY:(default)
+			client-message,app-client-messageとXXXPage.propertiesのみ送信します。
+			message, app-messageはJavascriptで使用不可となります。
+		ALL:
+			ページに関する全メッセージリソースをクライアントに送信します。
+			Javascriptで全てのメッセージを使えますが、メッセージを全て送信するので
+			初期転送のサイズが大きくなります。
+	-->
+	<context-param>
+		<param-name>client-message-transfer</param-name>
+		<param-value>CLIENT_ONLY</param-value>
+	</context-param>
+
+
+	<!--
+		ブラウザの戻るボタンの動作を設定します。
+		disabledを指定した場合、戻るボタンが機能しなくなります。
+	 -->
+	<context-param>
+		<param-name>browser-back-button</param-name>
+		<param-value>enabled</param-value>
+		<!--
+		<param-value>enabled</param-value>
+		<param-value>disabled</param-value>
+		-->
+	</context-param>
+	<!--
+		DataFormsServlet#init,destoryで何らかの処理が必要な場合、ServletInstanceBeanから派生したクラスを作成し
+		そのクラスを設定してください。
+	 -->
+	 <!--
+	<context-param>
+		<param-name>servlet-instance-bean</param-name>
+		<param-value>
+			dataforms.servlet.ServletInstanceBean
+		</param-value>
+	</context-param>
+	-->
+	<!--
+		ストリーミングのブラウザ毎の送信パターンを指定します。
+		html5のvideo,audioタグからの部分リクエストは大抵 "Range:bytes=0-"のように転送開始位置のみが指定されてきます。
+		この場合適切なサイズに区切って転送しないと、シーク機能が利用できません。
+		しかしFirefoxの場合、先頭のブロックのみを再生したところで止まってしまうので、指定された位置から最後まで転送するようにしないとうまく動作しないようです。
+	 -->
+	<context-param>
+		<param-name>streaming-block-size</param-name>
+		<param-value>
+			[
+				{"uaPattern": ".*Firefox.*", "blockSize": -1},
+				{"uaPattern": ".+", "blockSize": 16777216}
+			]
+		</param-value>
+	</context-param>
+	<!--
+		FileFieldの中に保存されたファイルをダウンロードする際に出力するcontent-typeを設定します。
+	 -->
+	<context-param>
+		<param-name>content-type-list</param-name>
+		<param-value>
+			[
+				{"fnPattern": "(?i).*\\.txt$", "contentType": "text/plain"},
+				{"fnPattern": "(?i).*\\.html$", "contentType": "text/html"},
+				{"fnPattern": "(?i).*\\.htm$", "contentType": "text/html"},
+				{"fnPattern": "(?i).*\\.xhtml$", "contentType": "text/xhtml+xml"},
+				{"fnPattern": "(?i).*\\.rss$", "contentType": "application/rss+xml"},
+
+				{"fnPattern": "(?i).*\\.zip$", "contentType": "application/zip"},
+				{"fnPattern": "(?i).*\\.pdf$", "contentType": "application/pdf"},
+				{"fnPattern": "(?i).*\\.xlsx$", "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
+
+				{"fnPattern": "(?i).*\\.png$", "contentType": "image/png"},
+				{"fnPattern": "(?i).*\\.jpg$", "contentType": "image/jpeg"},
+				{"fnPattern": "(?i).*\\.jpeg$", "contentType": "image/jpeg"},
+				{"fnPattern": "(?i).*\\.gif$", "contentType": "image/gif"},
+				{"fnPattern": "(?i).*\\.svg$", "contentType": "image/svg+xml"},
+
+				{"fnPattern": "(?i).*\\.swf$", "contentType": "application/x-shockwave-flash"},
+				{"fnPattern": "(?i).*\\.mpg$", "contentType": "video/mpeg"},
+				{"fnPattern": "(?i).*\\.mpeg$", "contentType": "video/mpeg"},
+				{"fnPattern": "(?i).*\\.mp4$", "contentType": "video/mp4"},
+				{"fnPattern": "(?i).*\\.mov$", "contentType": "video/quicktime"},
+				{"fnPattern": "(?i).*\\.qt$", "contentType": "video/quicktime"},
+				{"fnPattern": "(?i).*\\.mov$", "contentType": "video/x-msvideo"},
+
+				{"fnPattern": "(?i).*\\.mp3$", "contentType": "audio/mpeg"},
+				{"fnPattern": "(?i).*\\.wav$", "contentType": "audio/wav"},
+
+				{"fnPattern": ".+", "contentType": "application/octet-stream"}
+			]
+		</param-value>
+	</context-param>
+	<!-- データベースのバックアップファイル名を指定します。 -->
+	<context-param>
+		<param-name>backup-file-name</param-name>
+		<param-value>backup</param-value>
+	</context-param>
+	<!-- apache-fopの設定ファイルのパス -->
+	<context-param>
+		<param-name>apache-fop-config</param-name>
+		<param-value>/WEB-INF/apachefop/fop.xconf</param-value>
+	</context-param>
+	<!--
+		trueを設定すると複数のメニューを開いた状態にすることができ、
+		falseを設定すると、開いたメニュー以外は自動的に閉じるようになります。
+	 -->
+	<context-param>
+		<param-name>multi-open-menu</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<!--
+		ユーザの追加情報を記録するテーブルクラス。
+		UserIdFieldクラスが主キーとなるテーブルクラスを指定します。
+		このクラスを指定するとUserEditForm.java,UserSelfEditForm.java,
+		UserRegistForm.javaに指定されたテーブルのフィールドが配置されます。
+		UserEditForm.html,UserSelfEditPage.html,UserRegistPage.htmlを
+		jarファイルからプロジェクトにエクスポートし、フィールドを追加
+		することにより追加情報を入力することが可能になります。
+	 -->
+	 <!--
+	<context-param>
+		<param-name>user-additional-info-table</param-name>
+		<param-value>
+			dataforms.debug.user.dao.UserAdditionalInfoTable
+		</param-value>
+	</context-param>
+	 -->
+	<!--
+		HTML5のキャッシュ・マニフェストファイルのパスを指定します。
+	 -->
+	<!--
+	<context-param>
+		<param-name>appcache-file</param-name>
+		<param-value>/frame/dataforms.appcache</param-value>
+	</context-param>
+	-->
+	<!--
+		同じテーブルに対応したqueryFormとeditFormを1つのページに展開した場合、
+		同一ページ中に同じidのタグが複数存在することになります。
+		dataforms ver 1.xxのWebComponentのfindメソットは各コンポーネントの階層
+		を限定するセレクタを自動生成し、idが競合しても問題なく各HTML要素を取得
+		できるようにしていました。
+		しかしこの状態はエラーにはならないもののHTMLの規約違反状態でした。
+		そこでver 2.xxではhtmlのidアトリビュートを全てdata-idに設定し、
+		idアトリビュートにはページにユニークなIDを生成するようにする
+		オプションを用意しました。このオプションをtrueに設定すると、
+		htmlタグにidアトリビュートが設定されていた場合、すべてdata-idに
+		に変更します。その後javascriptでページにユニークなIDを生成して
+		idアトリビュートにセットします。
+
+		さらに、互換性を維持するために、WebComponentのfindメソッドに指定する、
+		jQueryセレクターは自動的に以下の様に書き換えられます。
+		#hoge -> [data-id='hoge']
+		[id='hoge'] -> [data-id='hoge']
+		[id$='hoge'] -> [data-id$='hoge']
+		[id^='hoge'] -> [data-id^='hoge']
+		[id!='hoge'] -> [data-id!='hoge']
+		[id*='hoge'] -> [data-id*='hoge']
+
+		このオプションを指定すると、idアトリビュートの値は書き換えられるため、
+		jQueryを直接使用する場合は注意してください。
+	 -->
+	<context-param>
+		<param-name>use-unique-id</param-name>
+		<param-value>
+			true
+		</param-value>
+	</context-param>
+
+	<!--
+		debugログに出力するjsonを整形するかどうかを指定します。
+		trueの場合成形されたjsonをログ出力に出力します。
+	-->
+	<context-param>
+		<param-name>json-debug</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- 使用する文字コードを指定します。-->
+	<context-param>
+		<param-name>encoding</param-name>
+		<param-value>utf-8</param-value>
+	</context-param>
+
+
+	<!-- セッションタイムアウト -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+</web-app>

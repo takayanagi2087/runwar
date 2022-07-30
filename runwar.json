@@ -15,11 +15,11 @@
 	//],
 	// 配列webappsに実行するアプリケーションを設定します。",
 	webapps:[
- 		{
+		{
 			title:"BBSシステム(dataforms.jarのサンプルアプリケーション)",
-			context:"/dfbbs",
+			context:"/sample",
 			startPage:"/index.html",
-			docBase:"webapps/dfbbs",
+			docBase:"webapps/sample",
 			browser:true
 		}
 	]
